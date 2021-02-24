@@ -6,18 +6,21 @@ const [visiblePopup, setVisiblePopup] = React.useState(false);
 const sortRef = React.useRef();
 
   function toggleVisiblePopup() {
-    setVisiblePopup(!visiblePopup);
+    setVisiblePopup(!visiblePopup)
   }
 
   const handleOutsideClick = (e) => {
+    console.log(e.path)
+    const test = JSON.stringify(e)
+    console.log(test)
     if (!e.path.includes(sortRef.current)) {
-      setVisiblePopup(false);
-      console.log('outside');
+      setVisiblePopup(false)
+      console.log('outside')
     }
   };
 
 React.useEffect(() => {
-  document.body.addEventListener('click', handleOutsideClick);
+  document.body.addEventListener('click', handleOutsideClick)
 }, []);
 
 
